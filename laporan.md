@@ -123,14 +123,14 @@ Model yang saya gunakan pada data ini adalah dengan menggunakan teknik *content-
 - Selanjutnya saya melakukan fit dan transformasi kedalam bentuk matriks, untuk menghitung derajat kesamaan antar anime, disini saya menggunakan teknik *cosine similarity*
 - Berikut adalah hasil dari teknik *cosine similarity*
 <br>
-<image src="https://raw.githubusercontent.com/yourbeagle/System-Recommendation-Anime/main/image/4.png" width=350 />
-<image src="https://raw.githubusercontent.com/yourbeagle/System-Recommendation-Anime/main/image/5.png" width=350 />
+<image src="https://raw.githubusercontent.com/yourbeagle/System-Recommendation-Anime/main/image/4.png" width=550 />
+<image src="https://raw.githubusercontent.com/yourbeagle/System-Recommendation-Anime/main/image/5.png" width=550 />
 
 - Lalu setelah melakukan teknik *cosine similarity* dan muncul rekomendasi, maka saya mencoba membuat fungsi untuk meminta rekomendasi anime berdasarkan judul yang saya inputkan.
-<image src="https://raw.githubusercontent.com/yourbeagle/System-Recommendation-Anime/main/image/6.png" width=350 />
+<image src="https://raw.githubusercontent.com/yourbeagle/System-Recommendation-Anime/main/image/6.png" width=550 />
 
 - Dan berikut adalah hasil dari model *content-based filtering* :
-<image src="https://raw.githubusercontent.com/yourbeagle/System-Recommendation-Anime/main/image/7.png" width=350 />
+<image src="https://raw.githubusercontent.com/yourbeagle/System-Recommendation-Anime/main/image/7.png" width=550 />
 
     Model berhasil memberikan rekomendasi 10 anime dengan genre yang sama seperti yang diharapkan.
 
@@ -169,15 +169,8 @@ Model yang saya gunakan pada data ini adalah dengan menggunakan teknik *content-
 - Rumus Metriks Precision
  <Image src="https://miro.medium.com/max/744/1*lLpbjisG7IApA5-j7Rmdig.png">
 
-<<<<<<< HEAD
-    Dimana : 
-    <br>
-    TP = True Positives
-    <br>
-=======
     Dimana :
     TP = True Positives
->>>>>>> c8cf6c53b9bb82b0a6985b5ea1b429d2c07446d4
     FP = False Positives
 
 ### Kesimpulan
