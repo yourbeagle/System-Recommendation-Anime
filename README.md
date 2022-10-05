@@ -30,8 +30,6 @@ Solusi yang saya pilih untuk menyelesaikan masalah ini adalah dengan menggunakan
 ## Data Understanding
 <br>
 
-### Analisis Data Eksplorasi
-
 Dataset yang saya pakai adalah [Anime Recommendation Database 2020](https://www.kaggle.com/datasets/hernan4444/anime-recommendation-database-2020?select=anime.csv) yang berisi informasi tentang preferensi dari 325,772 pengguna di 17,562 anime pada myanimelist.net, Analisis Data Eksplorasi mencakup proses kritis uji investigasi pendahuluan pada data untuk mengidentifikasi pola,menemukan anomali,menguji hipotesis, dan memeriksa asumsi melalui statistik ringkasan dan representasi visual.
 
 - Dataset ini terdiri dari 17,562 baris data dan 35 kolom data untuk ``anime.csv`` namun diproyek ini saya hanya menggunakan 13 kolom saja, berikut penjelasannya :
@@ -40,15 +38,36 @@ Dataset yang saya pakai adalah [Anime Recommendation Database 2020](https://www.
     - Name - judul dari anime
     - Score - Rata-rata skor yang diberikan oleh user MAL
     - Genres - Genre dari anime
+    - English Name - Nama lengkap anime dalam bahasa inggris
+    - Japanese Name - Nama lengkap anime dalam bahasa jepang
+    - Type - Tipe Anime (TV, OVA, ONA, Movie)
     - Episodes - Jumlah episode dari anime (1, jika movie atau spesial episode)
+    - Aired - tanggal anime di tayangkan
+    - Premiered - musim anime ditayangkan
     - Producers - Producer yang membuat anime
     - Studios - Studio yang menggarap anime
     - Source - Sumber dari cerita anime
+    - Duration - durasi dari anime
     - Rating - Rating dari anime
     - Ranked - Peringkat dari anime berdasarkan nilai skor
     - Popularity - Peringkat dari anime berdasarkan user menambahkan ke watchlist
     - Members - jumlah anggota komunitas yang ada di "grup" anime
     - Favorites - jumlah anggota komunitas yang menambahkan anime kedalam daftar favorit mereka
+    - Watching - jumlah anggota komunitas yang menonton anime tersebut
+    - Completed - jumlah anggota komunitas yang sudah selesai menonton anime tersebut
+    - On-Hold - jumlah anggota komunitas yang menaruh anime tersebut ke dalam daftar hold
+    - Dropped - jumlah anggota komunitas yang menaruh anime tersebut ke dalam daftar tidak tertarik
+    - Plan to Watch - jumlah anggota komunitas yang menaruh anime tersebut ke dalam daftar ingin ditonton
+    - Score-10 - jumlah anggota komunitas yang memberi nilai 10
+    - Score-9 - jumlah anggota komunitas yang memberi nilai 9
+    - Score-8 - jumlah anggota komunitas yang memberi nilai 8
+    - Score-7 - jumlah anggota komunitas yang memberi nilai 7
+    - Score-6 - jumlah anggota komunitas yang memberi nilai 6
+    - Score-5 - jumlah anggota komunitas yang memberi nilai 5
+    - Score-4 - jumlah anggota komunitas yang memberi nilai 4
+    - Score-3 - jumlah anggota komunitas yang memberi nilai 3
+    - Score-2 - jumlah anggota komunitas yang memberi nilai 2
+    - Score-1 - jumlah anggota komunitas yang memberi nilai 1
 
 - Berikut adalah deskripsi dari dataset yang digunakan
 
@@ -84,9 +103,14 @@ Dataset yang saya pakai adalah [Anime Recommendation Database 2020](https://www.
     | Members           | 0          	|
     | Favorites         | 0             |
 
+### Analisis Data Eksplorasi
+
+#### Univariate Analysis
 - Informasi yang bisa didapat dari hasil eksplorasi pada variabel pada ``anime.csv``
 
-    <image src="https://raw.githubusercontent.com/yourbeagle/System-Recommendation-Anime/main/image/1.png" width=350 />
+    ![image](https://raw.githubusercontent.com/yourbeagle/System-Recommendation-Anime/main/image/1.png)
+
+    <em>Gambar 1. Univariate Analysis</em>
 
 - Informasi yang saya dapat dari data diatas adalah :
     - Anime dengan tipe TV memiliki jumlah paling banyak dibandingkan dengan yang lain
@@ -94,7 +118,9 @@ Dataset yang saya pakai adalah [Anime Recommendation Database 2020](https://www.
     <br>
     <br>
 
-    <image src="https://raw.githubusercontent.com/yourbeagle/System-Recommendation-Anime/main/image/2.png" width=350 />
+    ![image](https://raw.githubusercontent.com/yourbeagle/System-Recommendation-Anime/main/image/2.png)
+
+    <em>Gambar 2. Univariate Analysis</em>
 
 - Informasi yang saya dapat dari data diatas adalah :
     - Anime dengan rating PG-13 memiliki jumlah paling banyak dibandingkan dengan yang lain
@@ -102,17 +128,32 @@ Dataset yang saya pakai adalah [Anime Recommendation Database 2020](https://www.
     <br>
     <br>
 
-    <image src="https://raw.githubusercontent.com/yourbeagle/System-Recommendation-Anime/main/image/3.png" width=350 />
+    ![image](https://raw.githubusercontent.com/yourbeagle/System-Recommendation-Anime/main/image/3.png)
+
+    <em>Gambar 3. Univariate Analysis</em>
 
 - Informasi yang saya dapat dari data diatas adalah :
     - Banyak anime yang memiliki rentang nilai dari 6-7 dibandingkan dengan rentang yang lainnya.
 
+#### Multivariate Analysis
+
+- ![image](https://raw.githubusercontent.com/yourbeagle/System-Recommendation-Anime/main/image/12.png)
+<em>Gambar 4. Multivariate Analysis</em>
 
 ## Data Preparation
 
 Sebelum melakukan pembuatan model, perlu dilakukan data preparation, berikut adalah hal yang dilakukan pada proses data preparation
 
-- **Drop Missing Value** : ini bertujuan untuk membersihkan data agar tidak ada data yang kosong, karena data kosong sangat mempengaruhi hasil akurasi dari model
+- **Mengubah Tipe Data Score menjadi Float** : ini bertujuan agar data Score bisa ditampilkan, karena sebelumnya tipe datanya object
+
+    ```
+    anime_data['Score'] = anime_data['Score'].replace(['Unknown'],0)
+    anime_data['Score'] = anime_data['Score'].astype('float')
+    }
+    ```
+
+- **Drop Missing Value** : ini bertujuan untuk membersihkan data agar tidak ada data yang kosong, karena data kosong sangat mempengaruhi hasil akurasi dari model, disini saya membuang beberapa variabel yaitu 'English name','Japanese name', 'Aired', 'Premiered', 'Licensors', 'Duration', 'Watching', 'Completed', 'On-Hold', 'Dropped', 'Plan to Watch','Score-10','Score-9','Score-8','Score-7','Score-6','Score-5','Score-4','Score-3','Score-2','Score-1'
+
 
 - **Text Cleaning** : ini bertujuan untuk menghapus simbol ataupun teks yang tidak diperlukan dan mengubah semua huruf menjadi huruf kecil
 
@@ -122,15 +163,24 @@ Model yang saya gunakan pada data ini adalah dengan menggunakan teknik *content-
 - Saya juga menggunakan ``TF-IDF Vectorizer`` untuk membangun sistem rekomendasi berdasarkan genre, dimana ``TF-IDF`` berfungsi untuk mengukur seberapa pentingnya suatu kata terhadap kata-kata lain dalam dokumen.
 - Selanjutnya saya melakukan fit dan transformasi kedalam bentuk matriks, untuk menghitung derajat kesamaan antar anime, disini saya menggunakan teknik *cosine similarity*
 - Berikut adalah hasil dari teknik *cosine similarity*
-<br>
-<image src="https://raw.githubusercontent.com/yourbeagle/System-Recommendation-Anime/main/image/4.png" width=350 />
-<image src="https://raw.githubusercontent.com/yourbeagle/System-Recommendation-Anime/main/image/5.png" width=350 />
+
+    ![image](https://raw.githubusercontent.com/yourbeagle/System-Recommendation-Anime/main/image/4.png)
+
+    <em>Gambar 5. Hasil dari Cosine Similarity</em>
+
+    ![image](https://raw.githubusercontent.com/yourbeagle/System-Recommendation-Anime/main/image/13.png)
+
+    
 
 - Lalu setelah melakukan teknik *cosine similarity* dan muncul rekomendasi, maka saya mencoba membuat fungsi untuk meminta rekomendasi anime berdasarkan judul yang saya inputkan.
-<image src="https://raw.githubusercontent.com/yourbeagle/System-Recommendation-Anime/main/image/6.png" width=350 />
+    ```
+    get_anime_recommendations('overlord')
+    ```
 
-- Dan berikut adalah hasil dari model *content-based filtering* :
-<image src="https://raw.githubusercontent.com/yourbeagle/System-Recommendation-Anime/main/image/7.png" width=350 />
+- Dan berikut adalah hasil 10 anime yang direkomendasikan dari model *content-based filtering* :
+![image](https://raw.githubusercontent.com/yourbeagle/System-Recommendation-Anime/main/image/7.png)
+
+    <em>Gambar 6. Hasil dari Content-based filtering</em> 
 
     Model berhasil memberikan rekomendasi 10 anime dengan genre yang sama seperti yang diharapkan.
 
@@ -139,11 +189,11 @@ Model yang saya gunakan pada data ini adalah dengan menggunakan teknik *content-
 - Hasil evaluasi *Content-based filtering* pada evaluasi model ini saya menggunakan metriks *precision*, berikut adalah hasil analisanya:
 
 - Anime yang digunakan sebagai data uji coba adalah Inuyasha :
-  <image src="https://raw.githubusercontent.com/yourbeagle/System-Recommendation-Anime/main/image/10.png" width=350 />
+  ![image](https://raw.githubusercontent.com/yourbeagle/System-Recommendation-Anime/main/image/10.png)
 
 - Hasil 10 anime yang direkomendasikan oleh model :
-<br>
-  <image src="https://raw.githubusercontent.com/yourbeagle/System-Recommendation-Anime/main/image/11.png" width=550 />
+
+  ![image](https://raw.githubusercontent.com/yourbeagle/System-Recommendation-Anime/main/image/11.png)
 
 - Untuk mengevaluasi model, saya menampung hasil rekomendasi kedalam variabel ``genre_recom`` kemudian membuat variabel ``get_recom_genre`` untuk menampung genre yang ada pada data uji yang selanjutnya akan dipakai pada evaluasi model
 
@@ -167,18 +217,12 @@ Model yang saya gunakan pada data ini adalah dengan menggunakan teknik *content-
     Hasil yang diberikan cukup baik sehingga dari sini saya bisa mengetahui bahwa model yang saya kembangkan berjalan sesuai dengan yang saya inginkan
 
 - Rumus Metriks Precision
- <Image src="https://miro.medium.com/max/744/1*lLpbjisG7IApA5-j7Rmdig.png">
+ 
+$$ Precision = {tp \over tp+fp} $$
 
-<<<<<<< HEAD
-    Dimana : 
-    <br>
-    TP = True Positives
-    <br>
-=======
-    Dimana :
-    TP = True Positives
->>>>>>> c8cf6c53b9bb82b0a6985b5ea1b429d2c07446d4
-    FP = False Positives
+- Dimana :
+    - TP = True Positives
+    - FP = False Positives
 
 ### Kesimpulan
 - Model terbaik, yaitu Content Based Filtering dapat memprediksi dengan akurasi hingga 100%
