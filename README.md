@@ -122,6 +122,7 @@ Model yang saya gunakan pada data ini adalah dengan menggunakan teknik *content-
 - Saya juga menggunakan ``TF-IDF Vectorizer`` untuk membangun sistem rekomendasi berdasarkan genre, dimana ``TF-IDF`` berfungsi untuk mengukur seberapa pentingnya suatu kata terhadap kata-kata lain dalam dokumen.
 - Selanjutnya saya melakukan fit dan transformasi kedalam bentuk matriks, untuk menghitung derajat kesamaan antar anime, disini saya menggunakan teknik *cosine similarity*
 - Berikut adalah hasil dari teknik *cosine similarity*
+<br>
 <image src="https://raw.githubusercontent.com/yourbeagle/System-Recommendation-Anime/main/image/4.png" width=350 />
 <image src="https://raw.githubusercontent.com/yourbeagle/System-Recommendation-Anime/main/image/5.png" width=350 />
 
@@ -138,4 +139,49 @@ Model yang saya gunakan pada data ini adalah dengan menggunakan teknik *content-
 - Hasil evaluasi *Content-based filtering* pada evaluasi model ini saya menggunakan metriks *precision*, berikut adalah hasil analisanya:
 
 - Anime yang digunakan sebagai data uji coba adalah Inuyasha :
-  <image src="https://raw.githubusercontent.com/yourbeagle/System-Recommendation-Anime/main/image/8.png" width=350 />
+  <image src="https://raw.githubusercontent.com/yourbeagle/System-Recommendation-Anime/main/image/10.png" width=350 />
+
+- Hasil 10 anime yang direkomendasikan oleh model :
+<br>
+  <image src="https://raw.githubusercontent.com/yourbeagle/System-Recommendation-Anime/main/image/11.png" width=550 />
+
+- Untuk mengevaluasi model, saya menampung hasil rekomendasi kedalam variabel ``genre_recom`` kemudian membuat variabel ``get_recom_genre`` untuk menampung genre yang ada pada data uji yang selanjutnya akan dipakai pada evaluasi model
+
+- Setelah itu saya melakukan perulangan berdasarkan genre pada data hasil rekomendasi dan melakukan implementasi dari formula precision
+
+- Berikut adalah hasil dari formula precision
+
+    | Genre           	    | Akurasi 	|
+    |-----------------	    |------------	|
+    | Action            	    | 100.0          	|
+    | Adventure            | 100.0          	|
+    | Comedy       	| 100.0          	|
+    | Historical  	| 100.0         	|
+    | Demons        	| 100.0         	|
+    | Supernatural 	        | 100.0          	|
+    | Magic       	| 100.0          	|
+    | Romance           | 100.0          	|
+    | Fantasy           | 100.0          	|
+    | Shounen           | 100.0          	|
+    
+    Hasil yang diberikan cukup baik sehingga dari sini saya bisa mengetahui bahwa model yang saya kembangkan berjalan sesuai dengan yang saya inginkan
+
+- Rumus Metriks Precision
+ <Image src="https://miro.medium.com/max/744/1*lLpbjisG7IApA5-j7Rmdig.png">
+
+    Dimana : <br>
+    TP = True Positives <br>
+    FP = False Positives
+
+### Kesimpulan
+- Model terbaik, yaitu Content Based Filtering dapat memprediksi dengan akurasi hingga 100%
+- Sistem rekomendasi dapat berjalan dengan baik, dimana sistem ini dapat memberikan rekomendasi anime yang sesuai dengan judul dan genre yang di minta oleh user
+- Hasil prediksi mungkin akan lebih baik apabila data tidak memiliki nilai unknown yang banyak.
+
+## Daftar Pustaka 
+
+[1]M. N. uddin, J. Shrestha, and G.-S. Jo, “Enhanced content-based filtering using diverse collaborative prediction for movie recommendation,” 2009 First Asian Conference on Intelligent Information and Database Systems, 2009.
+
+[2]W. Li, “Content-based anime recommendation,” Medium, 07-May-2021. [Online]. Available: https://medium.com/web-mining-is688-spring-2021/content-based-anime-recommendation-4d74038fab67. [Accessed: 05-Oct-2022].
+
+[3]A. Jena, A. Jaiswal, D. Lal, S. Rao, A. Ayubi, and N. Sachdeva, “Recommendation system for anime using machine learning algorithms,” SSRN Electronic Journal, 2022.
