@@ -86,5 +86,39 @@ Dataset yang saya pakai adalah [Anime Recommendation Database 2020](https://www.
 
 - Informasi yang bisa didapat dari hasil eksplorasi pada variabel pada ``anime.csv``
 
+    <image src="https://raw.githubusercontent.com/yourbeagle/System-Recommendation-Anime/main/image/1.png" width=350 />
 
+- Informasi yang saya dapat dari data diatas adalah :
+    - Anime dengan tipe TV memiliki jumlah paling banyak dibandingkan dengan yang lain
+    - Anime dengan tipe Music memiliki jumlah paling sedikit dibandingkan dengan yang lain
+    <br>
+    <br>
+
+    <image src="https://raw.githubusercontent.com/yourbeagle/System-Recommendation-Anime/main/image/2.png" width=350 />
+
+- Informasi yang saya dapat dari data diatas adalah :
+    - Anime dengan rating PG-13 memiliki jumlah paling banyak dibandingkan dengan yang lain
+    - Anime dengan tipe R+ memiliki jumlah paling sedikit dibandingkan dengan yang lain
+    <br>
+    <br>
+
+    <image src="https://raw.githubusercontent.com/yourbeagle/System-Recommendation-Anime/main/image/3.png" width=350 />
+
+- Informasi yang saya dapat dari data diatas adalah :
+    - Banyak anime yang memiliki rentang nilai dari 6-7 dibandingkan dengan rentang yang lainnya.
+
+
+## Data Preparation
+
+Sebelum melakukan pembuatan model, perlu dilakukan data preparation, berikut adalah hal yang dilakukan pada proses data preparation
+
+- **Drop Missing Value** : ini bertujuan untuk membersihkan data agar tidak ada data yang kosong, karena data kosong sangat mempengaruhi hasil akurasi dari model
+
+- **Text Cleaning** : ini bertujuan untuk menghapus simbol ataupun teks yang tidak diperlukan dan mengubah semua huruf menjadi huruf kecil
+
+## Modeling
+
+Model yang saya gunakan pada data ini adalah dengan menggunakan teknik *content-based filtering*.
+- Saya juga menggunakan ``TF-IDF Vectorizer`` untuk membangun sistem rekomendasi berdasarkan genre, dimana ``TF-IDF`` berfungsi untuk mengukur seberapa pentingnya suatu kata terhadap kata-kata lain dalam dokumen.
+- Selanjutnya saya melakukan fit dan transformasi kedalam bentuk matriks, untuk menghitung derajat kesamaan antar anime, disini saya menggunakan teknik *cosine similarity*
 
