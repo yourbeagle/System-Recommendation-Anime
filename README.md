@@ -150,7 +150,6 @@ Sebelum melakukan pembuatan model, perlu dilakukan data preparation, berikut ada
     ```
     anime_data['Score'] = anime_data['Score'].replace(['Unknown'],0)
     anime_data['Score'] = anime_data['Score'].astype('float')
-    }
     ```
 
 - **Drop Missing Value** : ini bertujuan untuk membersihkan data agar tidak ada data yang kosong, karena data kosong sangat mempengaruhi hasil akurasi dari model, disini saya membuang beberapa variabel yaitu 'English name','Japanese name', 'Aired', 'Premiered', 'Licensors', 'Duration', 'Watching', 'Completed', 'On-Hold', 'Dropped', 'Plan to Watch','Score-10','Score-9','Score-8','Score-7','Score-6','Score-5','Score-4','Score-3','Score-2','Score-1'
@@ -190,6 +189,7 @@ Model yang saya gunakan pada data ini adalah dengan menggunakan teknik *content-
 - Hasil evaluasi *Content-based filtering* pada evaluasi model ini saya menggunakan metriks *precision*, berikut adalah hasil analisanya:
 
 - Anime yang digunakan sebagai data uji coba adalah Inuyasha :
+
   ![image](https://raw.githubusercontent.com/yourbeagle/System-Recommendation-Anime/main/image/10.png)
 
 - Hasil 10 anime yang direkomendasikan oleh model :
