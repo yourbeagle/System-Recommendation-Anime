@@ -137,8 +137,9 @@ Dataset yang saya pakai adalah [Anime Recommendation Database 2020](https://www.
 
 #### Multivariate Analysis
 
-- ![image](https://raw.githubusercontent.com/yourbeagle/System-Recommendation-Anime/main/image/12.png)
-<em>Gambar 4. Multivariate Analysis</em>
+ ![image](https://raw.githubusercontent.com/yourbeagle/System-Recommendation-Anime/main/image/12.png)
+
+ <em>Gambar 4. Multivariate Analysis</em>
 
 ## Data Preparation
 
