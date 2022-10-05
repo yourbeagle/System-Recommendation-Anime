@@ -126,5 +126,16 @@ Model yang saya gunakan pada data ini adalah dengan menggunakan teknik *content-
 <image src="https://raw.githubusercontent.com/yourbeagle/System-Recommendation-Anime/main/image/5.png" width=350 />
 
 - Lalu setelah melakukan teknik *cosine similarity* dan muncul rekomendasi, maka saya mencoba membuat fungsi untuk meminta rekomendasi anime berdasarkan judul yang saya inputkan.
+<image src="https://raw.githubusercontent.com/yourbeagle/System-Recommendation-Anime/main/image/6.png" width=350 />
 
+- Dan berikut adalah hasil dari model *content-based filtering* :
+<image src="https://raw.githubusercontent.com/yourbeagle/System-Recommendation-Anime/main/image/7.png" width=350 />
+
+    Model berhasil memberikan rekomendasi 10 anime dengan genre yang sama seperti yang diharapkan.
+
+## Evaluasi
+
+- Hasil evaluasi *Content-based filtering* pada evaluasi model ini saya menggunakan metriks *precision*, berikut adalah hasil analisanya:
+
+- Anime yang digunakan sebagai data uji coba adalah Inuyasha :
 
