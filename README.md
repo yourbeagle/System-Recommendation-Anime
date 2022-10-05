@@ -169,8 +169,10 @@ Model yang saya gunakan pada data ini adalah dengan menggunakan teknik *content-
 - Rumus Metriks Precision
  <Image src="https://miro.medium.com/max/744/1*lLpbjisG7IApA5-j7Rmdig.png">
 
-    Dimana : <br>
-    TP = True Positives <br>
+    Dimana : 
+    <br>
+    TP = True Positives
+    <br>
     FP = False Positives
 
 ### Kesimpulan
