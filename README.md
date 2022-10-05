@@ -121,4 +121,10 @@ Sebelum melakukan pembuatan model, perlu dilakukan data preparation, berikut ada
 Model yang saya gunakan pada data ini adalah dengan menggunakan teknik *content-based filtering*.
 - Saya juga menggunakan ``TF-IDF Vectorizer`` untuk membangun sistem rekomendasi berdasarkan genre, dimana ``TF-IDF`` berfungsi untuk mengukur seberapa pentingnya suatu kata terhadap kata-kata lain dalam dokumen.
 - Selanjutnya saya melakukan fit dan transformasi kedalam bentuk matriks, untuk menghitung derajat kesamaan antar anime, disini saya menggunakan teknik *cosine similarity*
+- Berikut adalah hasil dari teknik *cosine similarity*
+<image src="https://raw.githubusercontent.com/yourbeagle/System-Recommendation-Anime/main/image/4.png" width=350 />
+<image src="https://raw.githubusercontent.com/yourbeagle/System-Recommendation-Anime/main/image/5.png" width=350 />
+
+- Lalu setelah melakukan teknik *cosine similarity* dan muncul rekomendasi, maka saya mencoba membuat fungsi untuk meminta rekomendasi anime berdasarkan judul yang saya inputkan.
+
 
