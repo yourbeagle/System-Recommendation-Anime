@@ -138,4 +138,4 @@ Model yang saya gunakan pada data ini adalah dengan menggunakan teknik *content-
 - Hasil evaluasi *Content-based filtering* pada evaluasi model ini saya menggunakan metriks *precision*, berikut adalah hasil analisanya:
 
 - Anime yang digunakan sebagai data uji coba adalah Inuyasha :
-
+  <image src="https://raw.githubusercontent.com/yourbeagle/System-Recommendation-Anime/main/image/8.png" width=350 />
